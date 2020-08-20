@@ -119,9 +119,10 @@ export class Oauth2Auth extends AlfrescoApiClient {
     }
 
     discoveryUrls() {
-        this.discovery.loginUrl = `${this.host}/protocol/openid-connect/auth`;
-        this.discovery.logoutUrl = `${this.host}/protocol/openid-connect/logout`;
-        this.discovery.tokenEndpoint = `${this.host}/protocol/openid-connect/token`;
+        const loginUri = this.config.oauth2.loginUri ? this.config.oauth2.loginUri : this.config.oauth2.authPath;
+        this.discovery.loginUrl = loginUri ? `${this.host}/${loginUri}` : `${this.host}/protocol/openid-connect/auth`;
+        this.discovery.logoutUrl = this.config.oauth2.logoutUri ? `${this.host}/${this.config.oauth2.logoutUri}` : `${this.host}/protocol/openid-connect/logout`;
+        this.discovery.tokenEndpoint = this.config.oauth2.tokenEndpoint ? `${this.host}/${this.config.oauth2.tokenEndpoint}` : `${this.host}/protocol/openid-connect/token`;
 
     }
 
