@@ -28,6 +28,7 @@
     "compile_dist_types": "tsc -p ./tsconfig/tsconfig.types.json",
     "generate_packages": "node .make-packages.js",
     "prepublish": "shx rm -rf ./typings && npm run build",
+    "prepare": "shx rm -rf ./typings && npm run build",
     "bundlesize-check": "bundlesize",
     "format-ts": "tsfmt -r",
     "test": "mocha --full-trace -r ts-node/register test/*.spec.ts test/**/*.spec.ts",
