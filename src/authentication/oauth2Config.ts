@@ -27,8 +27,8 @@ export interface Oauth2Config {
     redirectUriLogout?: string;
     redirectSilentIframeUri?: string;
     publicUrls?: string[];
-    authPath: string;
-    loginUri: string;
-    logoutUri: string;
-    tokenEndpoint: string;
+    authPath?: string;
+    loginUri?: string;
+    logoutUri?: string;
+    tokenEndpoint?: string;
 }
